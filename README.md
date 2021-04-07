@@ -6,7 +6,7 @@ E.g. pay out a pro-rata allocation based on time and share of pool.
 
 Steps:
 
-1. Obtain the Uni v2 token export. For TAP this is https://etherscan.io/token/0x54049236fc1db3e274128176efedf7c69b4c6335
+1. Obtain the Uni v2 token export. For DOV/ETH this is https://etherscan.io/token/0x610382C1968AA065A662E34E5a258CC64048324f
 
 Note. You must extract from the beginning of time if you want to reward to users already in the pool.
 
@@ -17,7 +17,7 @@ Note. You must extract from the beginning of time if you want to reward to users
 ```sql
 Delete from
 Trans
-Where trans.from = '0x54049236fc1db3e274128176efedf7c69b4c6335' and trans.to = '0x0000000000000000000000000000000000000000'
+Where trans.from = '0x610382C1968AA065A662E34E5a258CC64048324f' and trans.to = '0x0000000000000000000000000000000000000000'
 ```
 
 4. Adjust removals of tokens to - amounts:
@@ -25,7 +25,7 @@ Where trans.from = '0x54049236fc1db3e274128176efedf7c69b4c6335' and trans.to = '
 ```sql
 update trans
 set quantity = quantity - (2*quantity)
-where trans.to = '0x54049236fc1db3e274128176efedf7c69b4c6335'
+where trans.to = '0x610382C1968AA065A662E34E5a258CC64048324f'
 ```
 
 5. Update recipient details:
